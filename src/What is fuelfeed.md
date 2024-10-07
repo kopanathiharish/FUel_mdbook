@@ -1,4 +1,3 @@
-
 # FUelFeed: Transforming Food Donation and Data Collection
 
 FUelFeed is an innovative platform designed to revolutionize food donations and data collection within the grocery and food bank sectors. 
