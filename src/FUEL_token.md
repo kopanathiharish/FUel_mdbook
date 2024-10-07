@@ -27,7 +27,7 @@ Donating food not only helps reduce waste but also offers numerous advantages fo
 - **Positive Brand Image**: For businesses, engaging in charitable activities can enhance brand reputation and attract customers who value corporate social responsibility.
 
 ### How to Get Involved
-[FuelFeed model](./11.jpg)
+![FuelFeed model](./11.jpg)
 Participating in our FUEL token initiative is simple:
 
 1. **Identify Surplus Food**: Whether you’re a restaurant, grocery store, or an individual, take stock of any food items that are still safe for consumption but may go unused.
