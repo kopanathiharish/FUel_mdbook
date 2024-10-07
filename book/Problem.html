@@ -1,0 +1,256 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Nourishing Potential - FUel</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="1 Intro.html"><strong aria-hidden="true">1.</strong> INTRODUCTION</a></li><li class="chapter-item expanded "><a href="FOOD.html"><strong aria-hidden="true">2.</strong> Food Waste</a></li><li class="chapter-item expanded "><a href="FUEL_token.html"><strong aria-hidden="true">3.</strong> FUeling change</a></li><li class="chapter-item expanded "><a href="Problem.html" class="active"><strong aria-hidden="true">4.</strong> Nourishing Potential</a></li><li class="chapter-item expanded "><a href="Why FUel.html"><strong aria-hidden="true">5.</strong> FUel Tokens</a></li><li class="chapter-item expanded "><a href="Token_distribution.html"><strong aria-hidden="true">6.</strong> Token distribution</a></li><li class="chapter-item expanded "><a href="about.html"><strong aria-hidden="true">7.</strong> about</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">FUel</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h3 id="nourishing-potential-the-interconnected-crisis-of-food-insecurity-and-food-waste"><a class="header" href="#nourishing-potential-the-interconnected-crisis-of-food-insecurity-and-food-waste">Nourishing Potential: The Interconnected Crisis of Food Insecurity and Food Waste</a></h3>
+<p>Food insecurity is a pressing issue that undermines human potential across the globe. With over <strong>300 million people</strong> currently experiencing hunger, the implications of this crisis extend far beyond mere lack of access to food. It affects education, health, economic stability, and overall quality of life, creating a cycle of poverty that is difficult to escape.</p>
+<h4 id="the-scale-of-food-waste"><a class="header" href="#the-scale-of-food-waste">The Scale of Food Waste</a></h4>
+<p>Alarmingly, <strong>33% of the world's food</strong> is wasted each year. This staggering statistic highlights the inefficiencies in our food systems and raises critical questions about our societal values and priorities. From farms to consumers, food is lost at every stage of production, often due to overproduction, poor storage practices, or lack of awareness about food preservation. As food is discarded, not only is it a loss of resources, but it also represents lost opportunities to feed those in need.</p>
+<h4 id="environmental-consequences"><a class="header" href="#environmental-consequences">Environmental Consequences</a></h4>
+<p>The environmental repercussions of food waste are severe. Approximately <strong>10% of global emissions</strong> are attributed to wasted food. When food decomposes in landfills, it generates methane, a greenhouse gas that is significantly more potent than carbon dioxide. This contributes to climate change and environmental degradation, exacerbating the challenges faced by vulnerable populations worldwide. The resources used to produce this wasted food—water, land, energy—are also squandered, further straining our planet’s ecosystems.</p>
+<h4 id="the-cycle-of-hunger-and-crime"><a class="header" href="#the-cycle-of-hunger-and-crime">The Cycle of Hunger and Crime</a></h4>
+<p>The link between hunger and societal issues is deeply concerning. Research indicates that for every <strong>1% increase in hunger</strong>, there is a corresponding <strong>12% increase in crime</strong>. This correlation highlights the broader social implications of food insecurity. As individuals and families struggle to meet their basic needs, desperation can lead to increased criminal behavior, creating a cycle of instability that affects entire communities.</p>
+<h4 id="the-human-cost"><a class="header" href="#the-human-cost">The Human Cost</a></h4>
+<p>The consequences of food insecurity extend beyond immediate hunger. Lack of access to nutritious food can lead to long-term health issues, including malnutrition, stunted growth in children, and chronic diseases in adults. Educational attainment suffers as hungry children struggle to concentrate in school, ultimately affecting their future opportunities and economic prospects. This cycle perpetuates poverty and limits human potential.</p>
+<h4 id="a-call-to-action"><a class="header" href="#a-call-to-action">A Call to Action</a></h4>
+<p>Addressing food waste and food insecurity requires a collective effort from individuals, communities, governments, and organizations. Strategies to mitigate food waste include improving supply chain efficiencies, increasing awareness about food preservation, and implementing policies that promote food donation and redistribution. By redirecting surplus food to those in need, we can begin to bridge the gap between abundance and scarcity.</p>
+<p>In conclusion, food insecurity and food waste are interconnected issues that undermine human potential and societal stability. Tackling these challenges is not just an ethical imperative but a necessity for fostering healthier communities and a sustainable future. By working together, we can create systems that not only reduce waste but also ensure that everyone has access to the food they need to thrive.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="FUEL_token.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="Why FUel.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="FUEL_token.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="Why FUel.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
