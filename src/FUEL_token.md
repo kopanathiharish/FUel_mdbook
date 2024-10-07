@@ -28,7 +28,7 @@ Donating food not only helps reduce waste but also offers numerous advantages fo
 
 ### How to Get Involved
 
-![FuelFeed model](./11.jpg)
+![FuelFeed model](./files/11.jpg)
 
 Participating in our FUEL token initiative is simple:
 
